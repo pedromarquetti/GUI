@@ -1,5 +1,3 @@
-# from files import main
+from files import main
 
-# main.starter()
-from files import second
-second.starter(usr="teste")
+main.starter()
