@@ -9,7 +9,6 @@ https://www.tutorialspoint.com/python3/python_gui_programming.htm
 
 """
 
-CUR_USR = ...
 
 class Main(tk.Frame):
     def __init__(self,master,*args,**kwargs):
