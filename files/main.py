@@ -170,7 +170,6 @@ class Loginscreen(Main):
             def cur_usr(): return u_verify
             second.starter(usr=cur_usr())
             
-
         else:
             lbl2 = Label(self.login,text="Erro, tente novamente",
             font=("Arial",10))
