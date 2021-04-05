@@ -75,7 +75,6 @@ class Login:
         pwd = Encryption().decrypt(self.password,hashed)
 
         if len(rows) >0 and pwd == True:
-            print("deucerto")
             return True
         return False
 
