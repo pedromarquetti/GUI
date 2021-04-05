@@ -15,7 +15,6 @@ class Encryption:
 
     def encrypt(self,pwd):
         hashed = bcrypt.hashpw(bytes(pwd,"utf-8"),self.salt)
-        print(hashed)
         return hashed
     def decrypt(self,pwd,hashed_pwd):
         d_crypt = bcrypt.checkpw(bytes(pwd,"utf-8"),hashed_pwd)
@@ -53,7 +52,6 @@ class Register:
         
     def register(self):
         pwd = Encryption().encrypt(self.passwd)
-
         cur.execute(f"""INSERT INTO Users (name, passwd) 
         VALUES (?,?)""",(self.username,pwd))
         conn.commit()
@@ -73,8 +71,8 @@ class Login:
         rows = cur.fetchall()
         hashed = rows[0][1]
         pwd = Encryption().decrypt(self.password,hashed)
-
-        if len(rows) >0 and pwd == True:
+        
+        if rows[0][0] == self.username and pwd == True:
             return True
         return False
 
